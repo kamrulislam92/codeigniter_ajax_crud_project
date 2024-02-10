@@ -31,26 +31,40 @@
    </div>
 
    <script>
-      var x = document.getElementById("login");
-      var y = document.getElementById("register");
-      var z = document.getElementById("btn");
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
 
-      function register(){
-          x.style.left = "-400px";
-          y.style.left = "50px";
-          z.style.left = "110px";
-      }
+    function register(){
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+    }
 
-      function login(){
-          x.style.left = "50px";
-          y.style.left = "450px";
-          z.style.left = "0";
-      }
-   </script>
+    function login(){
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+    }
 
-
+    // Initially hide the registration form
+    document.addEventListener("DOMContentLoaded", function() {
+        y.style.left = "450px";
+    });
+</script>
 
 <style>
+    .container-fluid .row>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
     *{
     padding: 0;
     margin: 0;
@@ -58,7 +72,7 @@
 .hero {
     height: 100vh; /* Set height to 100% of the viewport height */
     width: 100%;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/images/banner.jpg');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/images/1.jpg');
     background-position: center;
     background-size: cover;
     position: relative; /* Changed to relative for absolute positioning within its container */
@@ -135,13 +149,14 @@
     background: transparent;
     text-align:center;
 }
+
 span {
     color: #777;
     font-size: 12px;
     bottom: 48px;
     left: 17px;
     position: absolute;
-    bottom: 58px;
+    top: 62%;
 }
 .submit-btn{
     width: 85%;
