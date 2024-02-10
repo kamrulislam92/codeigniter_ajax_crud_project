@@ -15,15 +15,19 @@
             <img src="img/instragram.png" alt="" srcset=""> -->
         </div>
         <form id="login" action="" class="kamrul">
-            <input type="text" class="input-field" placeholder="User Id" required>
+            <input type="text" class="input-field" placeholder="Enter email " required>
             <input type="password" class="input-field" placeholder="Enter Password">
             <input type="checkbox" class="check-box"><span>Remember Password</span>
             <button type="submit" class="submit-btn">Login</button>
         </form>
         <form id="register" action="" class="kamrul">
-            <input type="text" class="input-field" placeholder="User Id" required>
-            <input type="email" class="input-field" placeholder="Email Id" required>
+            <div class="form-group" style="display:flex; gap:10px;">
+                <input type="text" class="input-field" placeholder="Enter first name" required>
+                <input type="text" class="input-field" placeholder="Enter last name" required>
+            </div>
+            <input type="email" class="input-field" placeholder="Enter email " required>
             <input type="password" class="input-field" placeholder="Enter Password">
+            <input type="password" class="input-field" placeholder="Enter Confirm Password">
             <input type="checkbox" class="check-box"><span>I agree to the term & conditions</span>
             <button type="submit" class="submit-btn">Register</button>
         </form>
@@ -54,6 +58,14 @@
 </script>
 
 <style>
+    #register span {
+    color: #777;
+    font-size: 12px;
+    bottom: 48px;
+    left: 17px;
+    position: absolute;
+    top: 70%;
+}
     .container-fluid .row>* {
     flex-shrink: 0;
     width: 100%;
@@ -77,14 +89,13 @@
     background-size: cover;
     position: relative; /* Changed to relative for absolute positioning within its container */
 }
-
 .form_box {
-    width: 400px;
-    height: 460px;
+    width: 450px;
+    height: 560px;
     position: absolute;
     margin: 0 auto;
     background: #fff;
-    padding: 5px;
+    padding: 10px;
     overflow: hidden;
     left: 0;
     right: 0;
@@ -98,7 +109,7 @@
     box-shadow: 0 0 20px 9px #ff61241f;
     border-radius: 30px;
 }
-.toggle-btn{
+.toggle-btn {
     padding: 10px 20px;
     cursor: pointer;
     background: transparent;
@@ -106,8 +117,9 @@
     outline: none;
     position: relative;
     left: 20px;
+    color: #000000;
 }
-#btn{
+/* #btn{
     top: 0;
     left: 0;
     position: absolute;
@@ -117,9 +129,20 @@
     border-radius: 30px;
     transition: .5s;
 
+} */
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #0134a5 ,#879ff3);
+    border-radius: 30px;
+    transition: .5s;
+    color: #fff;
 }
-.social_icons{
-    margin: 30px auto;
+.social_icons {
+    margin: 15px auto;
     text-align: center;
 }
 .social_icons img{
@@ -132,7 +155,7 @@
 .kamrul{
     top: 180px;
     position: absolute;
-    width: 280px;
+    width: 80%;
     transition: .5s;
     margin: 0 auto;
     left: 15%;
@@ -164,14 +187,16 @@ span {
     cursor: pointer;
     display: block;
     margin:auto;
-    background: linear-gradient(to right, #ff105f , #ffad06 );
+    /* background: linear-gradient(to right, #ff105f , #ffad06 ); */
+    background: linear-gradient(to right, #0134a5 ,#879ff3);
     border: 0;
     outline: none;
     border-radius: 30px;
 }
 i.fa.fa-facebook {
     color: #fff;
-    background: linear-gradient(to right, #ff105f , #ffad06 );
+    /* background: linear-gradient(to right, #ff105f , #ffad06 ); */
+    background: linear-gradient(to right, #0134a5 ,#879ff3);
     padding: 11px;
     font-size: 19px;
     font-weight: bold;
@@ -179,7 +204,8 @@ i.fa.fa-facebook {
 }
 i.fa.fa-twitter {
     color: #fff;
-    background: linear-gradient(to right, #ff105f , #ffad06 );
+    /* background: linear-gradient(to right, #ff105f , #ffad06 ); */
+    background: linear-gradient(to right, #0134a5 ,#879ff3);
     padding: 11px;
     font-size: 19px;
     font-weight: bold;
@@ -187,7 +213,8 @@ i.fa.fa-twitter {
 }
 i.fa.fa-google {
     color: #fff;
-    background: linear-gradient(to right, #ff105f , #ffad06 );
+    /* background: linear-gradient(to right, #ff105f , #ffad06 ); */
+    background: linear-gradient(to right, #0134a5 ,#879ff3);
     padding: 11px;
     font-size: 19px;
     font-weight: bold;
@@ -199,13 +226,13 @@ i.fa.fa-google {
     padding: 30px 10px 30px 0;
     margin: 15px 0;
 }
-span {
+/* span {
     color: #777;
     font-size: 12px;
     bottom: 48px;
     left: 17px;
     position: absolute;
-}
+} */
 .login{
     left: 30px;
 }
