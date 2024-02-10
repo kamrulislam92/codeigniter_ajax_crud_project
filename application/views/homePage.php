@@ -1,3 +1,6 @@
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <div class="hero">
     <div class="form_box">
         <div class="button_box">
@@ -20,15 +23,26 @@
             <input type="checkbox" class="check-box"><span>Remember Password</span>
             <button type="submit" class="submit-btn">Login</button>
         </form>
-        <form id="register" action="" class="kamrul">
-            <div class="form-group" style="display:flex; gap:10px;">
-                <input type="text" class="input-field" placeholder="Enter first name" required>
-                <input type="text" class="input-field" placeholder="Enter last name" required>
+        <form id="register" action="<?php echo base_url('auth/loginRegistration_Controller/register'); ?>" method="POST" class="kamrul">
+     
+             <div class="row" >
+                <div class="col-md-6">
+                    <input type="text" name="first_name" class="input-field" placeholder="Enter first name" >
+                    <small><?php echo form_error('first_name'); ?></small>
+                </div>
+                <div class="col-md-6">          
+                    <input type="text" name="last_name" class="input-field" placeholder="Enter last name" >
+                    <small><?php echo form_error('last_name'); ?></small>
+                </div>
             </div>
-            <input type="email" class="input-field" placeholder="Enter email " required>
-            <input type="password" class="input-field" placeholder="Enter Password">
-            <input type="password" class="input-field" placeholder="Enter Confirm Password">
-            <input type="checkbox" class="check-box"><span>I agree to the term & conditions</span>
+            <input type="email" name="email" class="input-field" placeholder="Enter email " >
+            <small><?php echo form_error('email'); ?></small>
+            <input type="password" name="password" class="input-field" placeholder="Enter Password">
+            <small><?php echo form_error('password'); ?></small>
+            <input type="password" name="confirm_password" class="input-field" placeholder="Enter Confirm Password">
+            <small><?php echo form_error('confirm_password'); ?></small>
+            <input type="checkbox" name="agree" class="check-box"><span>I agree to the term & conditions</span>
+            <small><?php echo form_error('agree'); ?></small>
             <button type="submit" class="submit-btn">Register</button>
         </form>
     </div>
@@ -58,13 +72,13 @@
 </script>
 
 <style>
-    #register span {
+#register span {
     color: #777;
     font-size: 12px;
     bottom: 48px;
     left: 17px;
     position: absolute;
-    top: 70%;
+    top: 75%;
 }
     .container-fluid .row>* {
     flex-shrink: 0;
@@ -100,7 +114,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    top: 10%;
+    top: 0%;
 }
 .button_box{
     width: 220px;
@@ -153,7 +167,7 @@
     border-radius: 50%;
 }
 .kamrul{
-    top: 180px;
+    top: 110px;
     position: absolute;
     width: 80%;
     transition: .5s;
@@ -162,7 +176,7 @@
 }
 .input-field{
     width: 100%;
-    padding: 10px 0;
+    padding: 2px 0;
     margin: 5px 0;
     border-left: 0;
     border-right: 0;
