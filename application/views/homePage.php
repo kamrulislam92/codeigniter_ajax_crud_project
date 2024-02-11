@@ -19,13 +19,35 @@
             <!-- <img src="img/tw.png" alt="" srcset="">
             <img src="img/instragram.png" alt="" srcset=""> -->
         </div>
-        <form id="login" action="" class="kamrul">
-            <input type="text" class="input-field" placeholder="Enter email " required>
-            <input type="password" class="input-field" placeholder="Enter Password">
-            <input type="checkbox" class="check-box"><span>Remember Password</span>
-            <button type="submit" class="submit-btn">Login</button>
+        <form id="login" action="<?php echo base_url('auth/loginRegistration_Controller/logins'); ?>" class="form_main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12" >   
+                        <input type="text" name="email" class="input-field" placeholder="Enter email " required>
+                        <small><?php echo form_error('email'); ?></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12" >   
+                        <input type="password" name="password" class="input-field" placeholder="Enter Password">
+                        <small><?php echo form_error('password'); ?></small>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12" style="display:flex; position:relative; gap:10px;"> 
+                            <input type="checkbox" name="agree" class="check-box"><span>Remember Password</span>
+                            <small><?php echo form_error('first_name'); ?></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12" >  
+                        <button type="submit" class="submit-btn">Login</button>
+                    </div>
+                </div>
+            </div>
         </form>
-        <form id="register" action="<?php echo base_url('auth/loginRegistration_Controller/register'); ?>" method="POST" class="kamrul">
+        <form id="register" action="<?php echo base_url('auth/loginRegistration_Controller/register'); ?>" method="POST" class="form_main">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6" >                     
@@ -57,7 +79,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12"> 
+                    <div class="col-xs-12 col-sm-12 col-md-12" style="display:flex; position:relative; gap:10px;"> 
                         <input type="checkbox" name="agree" value="<?php echo set_value('agree'); ?>" class="check-box"><span>I agree to the term & conditions</span>
                         <small><?php echo form_error('agree'); ?></small>
                     </div>
@@ -96,13 +118,17 @@
 </script>
 
 <style>
-#register span {
+/* #register span {
     color: #777;
     font-size: 12px;
     bottom: 48px;
     left: 45px;
     position: absolute;
     top: 69%;
+} */
+#register span {
+    margin-left: 15px;
+    /* margin-top: -10px; */
 }
     .container-fluid .row>* {
     flex-shrink: 0;
@@ -128,7 +154,7 @@
 }
 .form_box {
     width: 450px;
-    height: 560px;
+    height:560px;
     position: absolute;
     margin: 0 auto;
     background: #fff;
@@ -137,7 +163,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    top: 5%;
+    /* top: 5%; */
 }
 .button_box{
     width: 275px;
@@ -189,7 +215,7 @@
     box-shadow: 0 0 20px 0 #7f7f7f3d;
     border-radius: 50%;
 }
-.kamrul{
+.form_main{
     top: 160px;
     position: absolute;
     width: 80%;
@@ -197,27 +223,33 @@
     margin: 0 auto;
     left: 15%;
 }
-.input-field{
+.input-field {
     width: 100%;
     padding: 2px 0;
-    margin: 5px 0;
+    margin: 13px 0;
     border-left: 0;
     border-right: 0;
     border-top: 0;
     border-bottom: 1px solid #999;
     outline: none;
     background: transparent;
-    text-align:center;
+    text-align: center;
+    border-radius: 10px;
 }
-
-span {
+/* span {
     color: #777;
     font-size: 12px;
     bottom: 48px;
     left: 20px;
     position: absolute;
     top: 54%;
+} */
+span {
+    color: #777;
+    font-size: 12px;
+    margin-top: 10px;
 }
+
 .submit-btn{
     width: 85%;
     padding: 10px 30px;
