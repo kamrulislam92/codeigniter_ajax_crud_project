@@ -1,5 +1,7 @@
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="hero">
     <div class="form_box">
@@ -24,26 +26,48 @@
             <button type="submit" class="submit-btn">Login</button>
         </form>
         <form id="register" action="<?php echo base_url('auth/loginRegistration_Controller/register'); ?>" method="POST" class="kamrul">
-     
-             <div class="row" >
-                <div class="col-md-6">
-                    <input type="text" name="first_name" class="input-field" placeholder="Enter first name" >
-                    <small><?php echo form_error('first_name'); ?></small>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6" >                     
+                        <input type="text" name="first_name" value="<?php echo set_value('first_name'); ?>" class="input-field" placeholder="Enter first name" >
+                        <small><?php echo form_error('first_name'); ?></small>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6" >
+                        <input type="text" name="last_name" value="<?php echo set_value('last_name'); ?>" class="input-field" placeholder="Enter last name" >
+                        <small><?php echo form_error('last_name'); ?></small>                     
+                    </div>
                 </div>
-                <div class="col-md-6">          
-                    <input type="text" name="last_name" class="input-field" placeholder="Enter last name" >
-                    <small><?php echo form_error('last_name'); ?></small>
+            
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12"> 
+                        <input type="email" name="email" value="<?php echo set_value('email'); ?>" class="input-field" placeholder="Enter email " >
+                        <small><?php echo form_error('email'); ?></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12"> 
+                        <input type="password" name="password" value="<?php echo set_value('password'); ?>" class="input-field" placeholder="Enter Password">
+                        <small><?php echo form_error('password'); ?></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12"> 
+                        <input type="password" name="confirm_password" value="<?php echo set_value('confirm_password'); ?>" class="input-field" placeholder="Enter Confirm Password">
+                        <small><?php echo form_error('confirm_password'); ?></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12"> 
+                        <input type="checkbox" name="agree" value="<?php echo set_value('agree'); ?>" class="check-box"><span>I agree to the term & conditions</span>
+                        <small><?php echo form_error('agree'); ?></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12"> 
+                        <button type="submit" class="submit-btn">Register</button>
+                    </div>
                 </div>
             </div>
-            <input type="email" name="email" class="input-field" placeholder="Enter email " >
-            <small><?php echo form_error('email'); ?></small>
-            <input type="password" name="password" class="input-field" placeholder="Enter Password">
-            <small><?php echo form_error('password'); ?></small>
-            <input type="password" name="confirm_password" class="input-field" placeholder="Enter Confirm Password">
-            <small><?php echo form_error('confirm_password'); ?></small>
-            <input type="checkbox" name="agree" class="check-box"><span>I agree to the term & conditions</span>
-            <small><?php echo form_error('agree'); ?></small>
-            <button type="submit" class="submit-btn">Register</button>
         </form>
     </div>
    </div>
@@ -56,7 +80,7 @@
     function register(){
         x.style.left = "-400px";
         y.style.left = "50px";
-        z.style.left = "110px";
+        z.style.left = "150px";
     }
 
     function login(){
@@ -76,19 +100,18 @@
     color: #777;
     font-size: 12px;
     bottom: 48px;
-    left: 17px;
+    left: 45px;
     position: absolute;
-    top: 75%;
+    top: 69%;
 }
     .container-fluid .row>* {
     flex-shrink: 0;
-    width: 100%;
+    /* width: 100%; */
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
     margin-top: var(--bs-gutter-y);
-    margin: 0 !important;
-    padding: 0 !important;
+
 }
 
     *{
@@ -114,23 +137,23 @@
     left: 0;
     right: 0;
     bottom: 0;
-    top: 0%;
+    top: 5%;
 }
 .button_box{
-    width: 220px;
+    width: 275px;
     margin: 0px auto;
     position: relative;
     box-shadow: 0 0 20px 9px #ff61241f;
     border-radius: 30px;
 }
 .toggle-btn {
-    padding: 10px 20px;
+    padding: 10px 30px;
     cursor: pointer;
     background: transparent;
     border: 0;
     outline: none;
     position: relative;
-    left: 20px;
+    left: 30px;
     color: #000000;
 }
 /* #btn{
@@ -148,7 +171,7 @@
     top: 0;
     left: 0;
     position: absolute;
-    width: 110px;
+    width: 125px;
     height: 100%;
     background: linear-gradient(to right, #0134a5 ,#879ff3);
     border-radius: 30px;
@@ -167,7 +190,7 @@
     border-radius: 50%;
 }
 .kamrul{
-    top: 110px;
+    top: 160px;
     position: absolute;
     width: 80%;
     transition: .5s;
@@ -191,9 +214,9 @@ span {
     color: #777;
     font-size: 12px;
     bottom: 48px;
-    left: 17px;
+    left: 20px;
     position: absolute;
-    top: 62%;
+    top: 54%;
 }
 .submit-btn{
     width: 85%;
