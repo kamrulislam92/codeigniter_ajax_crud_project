@@ -1,26 +1,40 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
+</head>
+<body>
+    <div class="hero">
+        <div class="form_box">
+            <div class="button_box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Registration</button>
+            </div>
+            <div class="social_icons">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-google"></i>
+            </div>
 
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div class="hero">
-    <div class="form_box">
-        <div class="button_box">
-            <div id="btn"></div>
-            <button type="button" class="toggle-btn" onclick="login()">Log In</button>
-            <button type="button" class="toggle-btn" onclick="register()">Registration</button>
-        </div>
-        <div class="social_icons">
-            <!-- <img src="img/fb.png" alt="" srcset=""> -->
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-google"></i>
-      
-            <!-- <img src="img/tw.png" alt="" srcset="">
-            <img src="img/instragram.png" alt="" srcset=""> -->
-        </div>
-        <form id="login" action="<?php echo base_url('auth/loginRegistration_Controller/logins'); ?>" class="form_main">
+<!--             
+        <form id="login" action="<?php echo base_url('auth/LoginRegistration_Controller/logins'); ?>" class="form_main">
             <div class="container">
+            <?php if($this->session->flashdata('status')): ?>
+                <div class="alert alert-success">  
+                    <?= $this->session->flashdata('status'); ?>
+                </div>
+            <?php endif; ?>
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12" >   
                         <input type="text" name="email" class="input-field" placeholder="Enter email " required>
@@ -37,7 +51,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12" style="display:flex; position:relative; gap:10px;"> 
                             <input type="checkbox" name="agree" class="check-box"><span>Remember Password</span>
-                            <small><?php echo form_error('first_name'); ?></small>
+                            <small><?php //echo form_error('first_name'); ?></small>
                     </div>
                 </div>
                 <div class="row">
@@ -46,9 +60,45 @@
                     </div>
                 </div>
             </div>
-        </form>
-        <form id="register" action="<?php echo base_url('auth/loginRegistration_Controller/register'); ?>" method="POST" class="form_main">
-            <div class="container">
+        </form> -->
+        <form id="login" action="<?php echo base_url('auth/LoginRegistration_Controller/logins'); ?>" method="POST" class="form_main">
+                <div class="container">
+                    <?php if($this->session->flashdata('status')): ?>
+                        <div class="alert alert-success">  
+                            <?= $this->session->flashdata('status'); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12" >   
+                            <input type="text" name="email" class="input-field" placeholder="Enter email" required>
+                            <small><?php echo form_error('email'); ?></small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12" >   
+                            <input type="password" name="password" class="input-field" placeholder="Enter Password" required>
+                            <small><?php echo form_error('password'); ?></small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12" style="display:flex; position:relative; gap:10px;"> 
+                                <input type="checkbox" name="agree" class="check-box"><span>Remember Password</span>
+                                <small><?php echo form_error('agree'); ?></small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12" >  
+                            <button type="submit" class="submit-btn">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <form id="register" action="<?php echo base_url('auth/LoginRegistration_Controller/register'); ?>" method="POST" class="form_main">
+                <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6" >                     
                         <input type="text" name="first_name" value="<?php echo set_value('first_name'); ?>" class="input-field" placeholder="Enter first name" >
@@ -80,7 +130,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12" style="display:flex; position:relative; gap:10px;"> 
-                        <input type="checkbox" name="agree" value="<?php echo set_value('agree'); ?>" class="check-box"><span>I agree to the term & conditions</span>
+                        <input type="checkbox" name="agree"  class="check-box"><span>I agree to the term & conditions</span>
                         <small><?php echo form_error('agree'); ?></small>
                     </div>
                 </div>
@@ -95,37 +145,32 @@
    </div>
 
    <script>
-    var x = document.getElementById("login");
-    var y = document.getElementById("register");
-    var z = document.getElementById("btn");
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
 
-    function register(){
-        x.style.left = "-400px";
-        y.style.left = "50px";
-        z.style.left = "150px";
-    }
+        function register(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "150px";
+        }
 
-    function login(){
-        x.style.left = "50px";
-        y.style.left = "450px";
-        z.style.left = "0";
-    }
+        function login(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+        }
 
-    // Initially hide the registration form
-    document.addEventListener("DOMContentLoaded", function() {
-        y.style.left = "450px";
-    });
-</script>
+        // Initially hide the registration form
+        document.addEventListener("DOMContentLoaded", function() {
+            y.style.left = "450px";
+        });
+    </script>
+</body>
+</html>
 
 <style>
-/* #register span {
-    color: #777;
-    font-size: 12px;
-    bottom: 48px;
-    left: 45px;
-    position: absolute;
-    top: 69%;
-} */
+
 #register span {
     margin-left: 15px;
     /* margin-top: -10px; */
@@ -145,16 +190,17 @@
     margin: 0;
 }
 .hero {
-    height: 100vh; /* Set height to 100% of the viewport height */
+    height: 100vh; 
     width: 100%;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/images/1.jpg');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('http://localhost/codeigniter_ajax_crud_project/assets/images/5.jpg');
     background-position: center;
     background-size: cover;
-    position: relative; /* Changed to relative for absolute positioning within its container */
+    position: relative; 
 }
+
 .form_box {
     width: 450px;
-    height:560px;
+    height:520px;
     position: absolute;
     margin: 0 auto;
     background: #fff;
@@ -162,8 +208,7 @@
     overflow: hidden;
     left: 0;
     right: 0;
-    bottom: 0;
-    /* top: 5%; */
+    top: 5%;
 }
 .button_box{
     width: 275px;
