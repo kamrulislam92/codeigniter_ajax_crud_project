@@ -25,6 +25,18 @@
 	            <a href="<?php echo base_url('ProjectController/dashboard'); ?>">Home</a>
 	            
 	          </li>
+            <li class="active">
+	            <a href="<?php echo base_url('UserController/index'); ?>">User Page</a>
+	          </li>
+
+            <?php if(!$this->session->has_userdata('authenticated')) {?>
+
+            <li class="active">
+	            <a href="<?php echo base_url('AdminController/index'); ?>">Admin Page</a>
+	          </li>
+
+            <?php } ?>
+
 	          <li>
 	              <a href="<?php echo base_url('ProjectController/about'); ?>">About</a>
 	          </li>
@@ -88,7 +100,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+                <li style="margin-top:10px; text-align:center;">
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" >
+                      <?= $this->session->userdata('authUser')['first_name']; ?>
+                      <?= $this->session->userdata('authUser')['last_name']; ?>
+                </a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li style="padding:5px; border:1px solid #eee;">
+                        <a href="#">Logout</a>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </div>
           </div>
         </nav>
+
+        <style>.dropdown-toggle::after {
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          left: 108px;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+      }</style>

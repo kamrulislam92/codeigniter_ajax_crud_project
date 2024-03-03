@@ -26,41 +26,6 @@
             </div>
 
 
-<!--             
-        <form id="login" action="<?php echo base_url('auth/LoginRegistration_Controller/logins'); ?>" class="form_main">
-            <div class="container">
-            <?php if($this->session->flashdata('status')): ?>
-                <div class="alert alert-success">  
-                    <?= $this->session->flashdata('status'); ?>
-                </div>
-            <?php endif; ?>
-
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12" >   
-                        <input type="text" name="email" class="input-field" placeholder="Enter email " required>
-                        <small><?php echo form_error('email'); ?></small>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12" >   
-                        <input type="password" name="password" class="input-field" placeholder="Enter Password">
-                        <small><?php echo form_error('password'); ?></small>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12" style="display:flex; position:relative; gap:10px;"> 
-                            <input type="checkbox" name="agree" class="check-box"><span>Remember Password</span>
-                            <small><?php //echo form_error('first_name'); ?></small>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12" >  
-                        <button type="submit" class="submit-btn">Login</button>
-                    </div>
-                </div>
-            </div>
-        </form> -->
         <form id="login" action="<?php echo base_url('auth/LoginRegistration_Controller/logins'); ?>" method="POST" class="form_main">
                 <div class="container">
                     <?php if($this->session->flashdata('status')): ?>

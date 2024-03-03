@@ -10,6 +10,11 @@ class LoginRegistration_Controller extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->model('UserModel');
+        
+        if($this->session->has_userdata('authenticated')){
+            $this->session->set_flashdata('status', 'You are already loggdin!');
+            $this->load->view('userpage');
+        }
     }
     
     function dashboard(){
@@ -48,67 +53,7 @@ class LoginRegistration_Controller extends CI_Controller {
             }
         }
     }
-    
-    // function logins() {
-    //     $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email');
-    //     $this->form_validation->set_rules('password', 'Password', 'trim|required');
-    
-    //     if ($this->form_validation->run() == FALSE) {
-    //         $this->load->view('loginRegisterForm');
-    //     } else {
-    //         $data = [
-    //             'email' => $this->input->post('email'),
-    //             'password' => $this->input->post('password')
-    //         ];
-    //         $user_login = new UserModel;
-    //         $checkLoginData = $user_login->userLoginForm($data);
-    //         if ($checkLoginData != FALSE) {
-    //             $auth_user_data = [
-    //                 'first_name' => $checkLoginData->first_name,
-    //                 'last_name' => $checkLoginData->last_name,
-    //                 'email' => $checkLoginData->email
-    //             ];
-    
-    //             $this->session->set_userdata('authenticated', TRUE);
-    //             $this->session->set_userdata('authUser', $auth_user_data);
-    //             $this->session->set_flashdata('status', 'Login successful!');
-    //             dashboard(); // Assuming 'dashboard' is the controller/method name
-    //         } else {
-    //             $this->session->set_flashdata('status', 'Login failed! Please try again.');
-                
-    //         }
-    //     }
-    // }
-    // function logins() {
-    //     $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email');
-    //     $this->form_validation->set_rules('password', 'Password', 'trim|required');
-    
-    //     if ($this->form_validation->run() == FALSE) {
-    //         $this->load->view('loginRegisterForm');
-    //     } else {
-    //         $data = [
-    //             'email' => $this->input->post('email'),
-    //             'password' => $this->input->post('password')
-    //         ];
-    //         $user_login = new UserModel;
-    //         $checkLoginData = $user_login->userLoginForm($data);
-    //         if ($checkLoginData != FALSE) {
-    //             $auth_user_data = [
-    //                 'first_name' => $checkLoginData->first_name,
-    //                 'last_name' => $checkLoginData->last_name,
-    //                 'email' => $checkLoginData->email
-    //             ];
-    
-    //             $this->session->set_userdata('authenticated', TRUE);
-    //             $this->session->set_userdata('authUser', $auth_user_data);
-    //             $this->session->set_flashdata('status', 'Login successful!');
-    //             redirect('dashboard'); // Assuming 'dashboard' is the controller/method name
-    //         } else {
-    //             $this->session->set_flashdata('status', 'Login failed! Please try again.');
-    //             redirect('login'); // Redirect back to login page
-    //         }
-    //     }
-    // }
+   
     function logins() {
         $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -131,19 +76,15 @@ class LoginRegistration_Controller extends CI_Controller {
                     'email' => $checkLoginData->email
                 ];
     
-                $this->session->set_userdata('authenticated', TRUE);
+                $this->session->set_userdata('authenticated', '1');
                 $this->session->set_userdata('authUser', $auth_user_data);
                 $this->session->set_flashdata('status', 'Login successful!');
                 redirect('dashboard'); // Redirect to dashboard
-            } else {
-                // If login fails, set flashdata and redirect to login page
+            } else {                                                                                
                 $this->session->set_flashdata('status', 'Login failed! Please try again.');
                 redirect('loginRegisterForm'); // Redirect back to login page
             }
         }
     }
-    
-    
-  
-    
+       
 }
